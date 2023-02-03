@@ -8,6 +8,7 @@ final soapMng soap = soapMng();
 
 class soapMng {
   int index = 0;
+  bool unit_G = false;
   TextEditingController name = TextEditingController();
   late Function Update;
   static const int MAX_INDEX = 7;
@@ -19,6 +20,7 @@ class soapMng {
     index = 0;
     name = TextEditingController();
     Update = func;
+    unit_G = false;
     oilPops = false;
     oil_selected = {};
   }
@@ -32,6 +34,11 @@ class soapMng {
   void showSelectPop() {
     if(index == 1) oilPops = true;
   }
+
+  void changeUnit() {
+    unit_G = !unit_G;
+  }
+
 
   void setIndex(bool increase, BuildContext context) {
     index = increase ? index + 1 : index - 1;

@@ -10,19 +10,22 @@ class footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: soap.index == 0 ? Colors.transparent : theme.soapThemeColor[0],
-      height: 85,
+      height: 75,
       child: Row(
         children: [
           Expanded(
             child: Container(
               height: double.infinity,
-              color: soap.index == 0 ? theme.backgroundColor : Colors.transparent,
+              decoration: BoxDecoration(
+                color: soap.index == 0 ? theme.backgroundColor : theme.soapThemeColor[0],
+                borderRadius: const BorderRadius.only(topRight: Radius.circular(45)),
+              ),
+
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  borderRadius: soap.index == 0 ? BorderRadius.circular(0) : BorderRadius.circular(100),
                   highlightColor: theme.soapThemeColor[soap.index == 0 ? 0 : 1].withOpacity(0.4),
+                  borderRadius: soap.index == 0 ? BorderRadius.circular(0) : BorderRadius.only(topRight: Radius.circular(45)),
                   splashColor: theme.soapThemeColor[soap.index == 0 ? 0 : 1].withOpacity(0.4),
                   onTap: () {
                     soap.setIndex(false, context);
@@ -58,7 +61,7 @@ class footer extends StatelessWidget {
           Visibility(
             visible: soap.index > 0,
             child: Container(
-              width: 138,
+              width: 90,
               height: double.infinity,
               decoration: BoxDecoration(
                 color: theme.backgroundColor,
@@ -85,6 +88,33 @@ class footer extends StatelessWidget {
               ),
             ),
           ),
+          Visibility(
+            visible: soap.index > 0,
+            child: Container(
+              width: 90,
+              height: double.infinity,
+              decoration: BoxDecoration(
+                color: theme.backgroundColor,
+                borderRadius: BorderRadius.circular(100),
+              ),
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                    borderRadius: BorderRadius.circular(100),
+                    highlightColor: theme.soapThemeColor[0].withOpacity(0.4),
+                    splashColor: theme.soapThemeColor[0].withOpacity(0.4),
+                    onTap: () {
+                      soap.changeUnit();
+                      soap.Update();
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(24),
+                      child: Icon(soap.unit_G ? Icons.change_circle : Icons.change_circle_outlined, size: 32, color: theme.soapThemeColor[0],)
+                    )
+                ),
+              ),
+            ),
+          ),
           Expanded(
             child: Container(
               height: double.infinity,
@@ -95,7 +125,7 @@ class footer extends StatelessWidget {
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  borderRadius: soap.index == 0 ? BorderRadius.only(topLeft: Radius.circular(45)) : BorderRadius.circular(100),
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(45)),
                   highlightColor: theme.soapThemeColor[1].withOpacity(0.4),
                   splashColor: theme.soapThemeColor[1].withOpacity(0.4),
                   onTap: () {
