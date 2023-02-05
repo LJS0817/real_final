@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:real_final/config/themeConfig.dart';
 import 'package:real_final/models/soap/soapMng.dart';
 
@@ -7,6 +8,8 @@ class addOil extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeData theme = Provider.of<themeData>(context);
+    final soapMng soap = Provider.of<soapMng>(context);
     return Expanded(
       child: Column(
         children: [
@@ -15,7 +18,7 @@ class addOil extends StatelessWidget {
             child: ListView(
               shrinkWrap: true,
               padding: EdgeInsets.zero,
-              children: soap.oil_selected.values.toList(),
+              children: context.watch<soapMng>().oil_selected.values.toList(),
             ),
           ),
           Visibility(

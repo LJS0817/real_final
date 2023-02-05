@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'package:real_final/config/themeConfig.dart';
 import 'package:real_final/config/languageConfig.dart';
 import 'package:real_final/models/soap/soapMng.dart';
@@ -7,6 +8,8 @@ import 'package:real_final/models/soap/soapMng.dart';
 class header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final themeData theme = Provider.of<themeData>(context);
+    final soapMng soap = Provider.of<soapMng>(context);
     return Container(
       height: 205,
       width: MediaQuery.of(context).size.width,
@@ -58,7 +61,7 @@ class header extends StatelessWidget {
             Positioned(
               right: 20,
               child: Text(
-                "12222\n1122\n12\n123213123",
+                "${soap.weight}\n1122\n12\n123213123",
                 textAlign: TextAlign.right,
                 style: TextStyle(
                   height: 1.5,

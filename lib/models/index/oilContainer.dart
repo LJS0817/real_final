@@ -2,11 +2,13 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'package:real_final/config/Mng.dart';
 import 'package:real_final/config/Oil.dart';
 import 'package:real_final/config/menuMng.dart';
 import 'package:real_final/config/themeConfig.dart';
 import 'package:real_final/models/soap/oilShortcut.dart';
+import 'package:real_final/models/soap/oilView.dart';
 import 'package:real_final/models/soap/soapMng.dart';
 
 class oilContainer extends StatelessWidget {
@@ -23,6 +25,7 @@ class oilContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeData theme = Provider.of<themeData>(context);
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
       height: 50,
@@ -40,12 +43,12 @@ class oilContainer extends StatelessWidget {
             if(!mng.isWorkspace) {
               return;
             }
-            if(soap.oil_selected.containsKey(data.index))  {
-              soap.oil_selected.remove(data.index);
+            if(context.read<soapMng>().oil_selected.containsKey(data.index))  {
+              context.read<soapMng>().removeOilContainer(data.index);
             } else {
-              soap.oil_selected[data.index] = oilPreview(data.korean, data.index);
+              context.read<soapMng>().addOilContainer(data);
             }
-            soap.Update();
+            // soap.Update();
           },
           child: Stack(
             alignment: Alignment.centerLeft,

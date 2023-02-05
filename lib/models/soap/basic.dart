@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:real_final/config/themeConfig.dart';
 import 'package:real_final/models/soap/soapMng.dart';
 
@@ -9,6 +10,7 @@ class basic extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeData theme = Provider.of<themeData>(context);
     return Expanded(
       child: ListView(
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 21),
@@ -42,9 +44,9 @@ class basic extends StatelessWidget {
             ),
             child: TextField(
                 cursorColor: theme.soapThemeColor[0],
-                controller: soap.name,
+                controller: context.read<soapMng>().name,
                 onChanged: (String s) {
-                  soap.Update();
+                  context.read<soapMng>().changeName();
                 },
                 autocorrect: false,
                 keyboardType: TextInputType.text,
@@ -62,7 +64,8 @@ class basic extends StatelessWidget {
                   ),
                   enabledBorder: InputBorder.none,
                   focusedBorder: InputBorder.none,
-                )),
+                )
+            ),
           ),
 
           const Padding(padding: EdgeInsets.only(top: 38,)),
@@ -89,7 +92,7 @@ class basic extends StatelessWidget {
                     splashColor: theme.getSoapType(TYPE.E_COLD, 1, 0).withOpacity(0.6),
                     onTap: () {
                       theme.changeSoapTheme(TYPE.E_COLD);
-                      soap.Update();
+
                     },
                     child: Container(
                       alignment: Alignment.center,
@@ -124,7 +127,6 @@ class basic extends StatelessWidget {
                     splashColor: theme.getSoapType(TYPE.E_HOT, 1, 0).withOpacity(0.6),
                     onTap: () {
                       theme.changeSoapTheme(TYPE.E_HOT);
-                      soap.Update();
                     },
                     child: Container(
                       alignment: Alignment.center,
@@ -159,7 +161,6 @@ class basic extends StatelessWidget {
                     splashColor: theme.getSoapType(TYPE.E_PASTE, 1, 0).withOpacity(0.6),
                     onTap: () {
                       theme.changeSoapTheme(TYPE.E_PASTE);
-                      soap.Update();
                     },
                     child: Container(
                       alignment: Alignment.center,

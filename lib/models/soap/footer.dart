@@ -1,14 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'package:real_final/config/themeConfig.dart';
 import 'package:real_final/config/languageConfig.dart';
 import 'package:real_final/models/soap/soapMng.dart';
-import 'dart:math' as math;
+import 'dart:developer';
 
 class footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final themeData theme = Provider.of<themeData>(context);
+    final soapMng soap = Provider.of<soapMng>(context);
     return Container(
       height: 75,
       child: Row(
@@ -20,7 +23,6 @@ class footer extends StatelessWidget {
                 color: soap.index == 0 ? theme.backgroundColor : theme.soapThemeColor[0],
                 borderRadius: const BorderRadius.only(topRight: Radius.circular(45)),
               ),
-
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
@@ -29,7 +31,6 @@ class footer extends StatelessWidget {
                   splashColor: theme.soapThemeColor[soap.index == 0 ? 0 : 1].withOpacity(0.4),
                   onTap: () {
                     soap.setIndex(false, context);
-                    soap.Update();
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -75,7 +76,6 @@ class footer extends StatelessWidget {
                     splashColor: theme.soapThemeColor[0].withOpacity(0.4),
                     onTap: () {
                       soap.showSelectPop();
-                      soap.Update();
                     },
                     child: Container(
                       padding: const EdgeInsets.all(24),
@@ -104,8 +104,7 @@ class footer extends StatelessWidget {
                     highlightColor: theme.soapThemeColor[0].withOpacity(0.4),
                     splashColor: theme.soapThemeColor[0].withOpacity(0.4),
                     onTap: () {
-                      soap.changeUnit();
-                      soap.Update();
+                      context.read<soapMng>().changeUnit();
                     },
                     child: Container(
                       padding: const EdgeInsets.all(24),
@@ -129,8 +128,8 @@ class footer extends StatelessWidget {
                   highlightColor: theme.soapThemeColor[1].withOpacity(0.4),
                   splashColor: theme.soapThemeColor[1].withOpacity(0.4),
                   onTap: () {
+                    log("message");
                     soap.setIndex(true, context);
-                    soap.Update();
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

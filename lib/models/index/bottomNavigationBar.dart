@@ -3,9 +3,12 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'package:real_final/config/Mng.dart';
 import 'package:real_final/config/menuMng.dart';
 import 'package:real_final/config/themeConfig.dart';
+
+import '../soap/soapMng.dart';
 
 const double iconScale = 29;
 
@@ -24,6 +27,7 @@ class iconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeData theme = Provider.of<themeData>(context);
     return AnimatedContainer(
         duration: Duration(milliseconds: menu.aniTime),
         width: 60,
@@ -64,15 +68,16 @@ class bottomNavigationBar extends StatelessWidget {
     changeTab = fn;
   }
 
-  void changeTheme(int idx) {
+  void changeTheme(int idx, BuildContext context) {
     if(idx == 3) { menu.isConfig = true; }
     else { menu.isConfig = false; }
-    theme.changeMainTheme(MAINMENU_TYPE.values[idx]);
+    context.read<themeData>().changeMainTheme(MAINMENU_TYPE.values[idx]);
     changeTab(idx);
   }
 
   @override
   Widget build(BuildContext context) {
+    final themeData theme = Provider.of<themeData>(context, listen: false);
     double width = MediaQuery.of(context).size.width;
     return Container(
       height: 100,
@@ -129,11 +134,11 @@ class bottomNavigationBar extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  iconButton('assets/icon/soap.svg', 0, () { changeTheme(0); }),
-                  iconButton('assets/icon/beauty.svg', 1, () { changeTheme(1); }),
+                  iconButton('assets/icon/soap.svg', 0, () { changeTheme(0, context); }),
+                  iconButton('assets/icon/beauty.svg', 1, () { changeTheme(1, context); }),
                   const SizedBox(width: 82, height: 80,),
-                  iconButton('assets/icon/oil.svg', 2, () { changeTheme(2); }, size: 16),
-                  iconButton('assets/icon/settings.svg', 3, () { changeTheme(3); }),
+                  iconButton('assets/icon/oil.svg', 2, () { changeTheme(2, context); }, size: 16),
+                  iconButton('assets/icon/settings.svg', 3, () { changeTheme(3, context); }),
                 ],
               ),
             ),
@@ -164,6 +169,8 @@ class bottomNavigationBar extends StatelessWidget {
                   highlightColor: theme.backgroundColor.withOpacity(0.5),
                   onTap: () {
                     mng.isWorkspace = true;
+                    context.read<soapMng>().init();
+                    context.read<themeData>().soapDataInit();
                     menu.changeScene(context);
                   },
                   child: AnimatedContainer(

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:real_final/config/themeConfig.dart';
 import 'package:real_final/config/languageConfig.dart';
 import 'package:real_final/models/soap/basic.dart';
@@ -8,36 +9,20 @@ import 'package:real_final/models/soap/header.dart';
 import 'package:real_final/models/soap/oilPopup.dart';
 import 'package:real_final/models/soap/soapMng.dart';
 
-class SoapWorkspace extends StatefulWidget {
-  @override
-  _SoapWorkspace createState() => _SoapWorkspace();
-}
-
-
-class _SoapWorkspace extends State<SoapWorkspace> {
-  @override
-  void initState() {
-    soap.init(() { setState(() {}); });
-    theme.soapDataInit();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
+class SoapWorkspace extends StatelessWidget {
+  const SoapWorkspace({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: theme.backgroundColor,
+        color: context.read<themeData>().backgroundColor,
         child: Stack(
           children: [
             Column(
               children: [
                 header(),
-                soap.curPage(),
+                context.watch<soapMng>().curPage,
                 footer(),
               ],
             ),

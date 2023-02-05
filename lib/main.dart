@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:real_final/config/themeConfig.dart';
+import 'package:real_final/models/soap/soapMng.dart';
 import 'package:real_final/screens/menu/index.dart';
 import 'package:real_final/screens/work/soap.dart';
 import 'package:real_final/config/menuMng.dart';
@@ -14,26 +16,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      routes: {
-        '/index': (context) => IndexScreen(),
-        menu.soap: (context) => SoapWorkspace(),
-      },
-      initialRoute: '/index',
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => soapMng()),
+        ChangeNotifierProvider(create: (_) => themeData()),
+
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        routes: {
+          '/index': (context) => IndexScreen(),
+          menu.soap: (context) => SoapWorkspace(),
+        },
+        initialRoute: '/index',
+      ),
     );
-    // return MultiProvider(
-    //   providers: [
-    //
-    //   ],
-    //   child: MaterialApp(
-    //     title: 'Flutter Demo',
-    //     routes: {
-    //       '/index': (context) => IndexScreen(),
-    //       //'/create/soap': (context) => SoapScreen(),
-    //     },
-    //     initialRoute: '/index',
-    //   ),
-    // );
   }
 }

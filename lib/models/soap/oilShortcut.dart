@@ -1,46 +1,50 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:real_final/config/themeConfig.dart';
 import 'package:real_final/models/soap/soapMng.dart';
 
 class oilPreview extends StatelessWidget {
   String _name = "";
   int idx = 0;
+
   oilPreview(String name, int i, {super.key})
   {
     _name = name;
     idx = i;
   }
 
-
   @override
   Widget build(BuildContext context) {
+    final themeData theme = Provider.of<themeData>(context);
+    final soapMng soap = Provider.of<soapMng>(context);
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 5),
+      height: 75,
+      margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
       decoration: BoxDecoration(
-        color: theme.soapThemeColor[0],
-        borderRadius: BorderRadius.circular(100),
+        color: theme.soapThemeColor[1],
+        border: Border.all(color: theme.soapThemeColor[0], width: 3),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Material(
         color: Colors.transparent,
         child: InkWell(
           splashColor: theme.soapThemeColor[2].withOpacity(0.7),
           highlightColor: theme.soapThemeColor[2].withOpacity(0.7),
-          borderRadius: BorderRadius.circular(100),
+          borderRadius: BorderRadius.circular(16),
           onTap: () {
-            soap.oil_selected.remove(idx);
-            soap.Update();
+            context.watch<soapMng>().removeOilContainer(idx);
           },
           child: Row (
             children: [
               const Padding(padding: EdgeInsets.only(right: 15)),
               Text(
                 idx.toString() + ".  " + _name,
-                style: TextStyle(color: theme.soapThemeColor[1], fontWeight: FontWeight.bold, fontSize: 16),
-              ),
-              const Padding(padding: EdgeInsets.only(right: 10)),
-              Icon(CupertinoIcons.xmark_octagon, color: theme.soapThemeColor[1],),
-              const Padding(padding: EdgeInsets.only(right: 15))
+               style: TextStyle(color: theme.soapThemeColor[0], fontWeight: FontWeight.bold, fontSize: 16),
+             ),
+              const Padding(padding: EdgeInsets.only(right: 20)),
+              Icon(CupertinoIcons.xmark_octagon, color: theme.soapThemeColor[0],),
+              const Padding(padding: EdgeInsets.only(right: 8))
             ],
           ),
         ),

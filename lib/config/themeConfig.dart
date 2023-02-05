@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 enum TYPE { E_COLD, E_HOT, E_PASTE }
 enum MAINMENU_TYPE { E_SOAP, E_BEAUTY, E_OIL, E_SETTING }
 
-final themeData theme = themeData();
-
-class themeData {
+class themeData with ChangeNotifier {
   static const List<Color> themeColors = [
     Color(0xFF3B6C95),
     Color(0xFF8F9E81),
@@ -64,6 +63,7 @@ class themeData {
   void changeSoapTheme(TYPE t) {
     type = t;
     soapThemeColor = soapThemeColors[t.index];
+    notifyListeners();
   }
 
   Color getSoapType(TYPE compare, int idx, int fail) {
@@ -76,6 +76,7 @@ class themeData {
     textColor = themeTextColors[t.index];
     iconColor = themeIconColors[t.index];
     backgroundColor = themeBackgroundColors[t.index];
+    notifyListeners();
   }
 
   void changeTheme(TYPE t) {
@@ -84,5 +85,6 @@ class themeData {
     textColor = themeTextColors[t.index];
     iconColor = themeIconColors[t.index];
     backgroundColor = themeBackgroundColors[t.index];
+    notifyListeners();
   }
 }

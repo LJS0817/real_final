@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:real_final/config/Mng.dart';
 import 'package:real_final/config/menuMng.dart';
 import 'package:real_final/config/themeConfig.dart';
@@ -43,7 +44,7 @@ void loadAsset(BuildContext context) async {
 Widget getIndex() {
   if(menu.index == 0) { return SoapTab(); }
   if(menu.index == 1) { return BeautyTab(); }
-  if(menu.index == 2) { return OilTab(key: UniqueKey()); }
+  if(menu.index == 2) { return OilTab(); }
   else { return SettingTab(); }
 }
 
@@ -53,7 +54,6 @@ class _IndexScreenState extends State<IndexScreen> {
   void initState() {
     words.init();
     menu.init(() { setState(() {  }); });
-    log("ASDAS");
     super.initState();
     loadAsset(context);
   }
@@ -61,10 +61,10 @@ class _IndexScreenState extends State<IndexScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: theme.backgroundColor,
+      backgroundColor: context.read<themeData>().backgroundColor,
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: theme.themeColor,
+        backgroundColor: context.read<themeData>().themeColor,
         title: Text(words.getMainTitle(menu.index)),
       ),
       body: getIndex(),

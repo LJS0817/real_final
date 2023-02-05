@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:real_final/config/Oil.dart';
 import 'package:real_final/config/Mng.dart';
 import 'package:real_final/config/themeConfig.dart';
@@ -11,6 +12,8 @@ import 'package:real_final/models/soap/soapMng.dart';
 class oilPopup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final themeData theme = Provider.of<themeData>(context);
+    final soapMng soap = Provider.of<soapMng>(context);
     return Visibility(
       visible: soap.oilPops,
       child: SafeArea(
@@ -50,7 +53,7 @@ class oilPopup extends StatelessWidget {
                             scrollDirection: Axis.horizontal,
                             shrinkWrap: true,
                             padding: EdgeInsets.zero,
-                            children: soap.oil_selected.values.toList(),
+                            children: context.watch<soapMng>().oil_short_selected.values.toList(),
                           ),
                         ),
                         Container(
@@ -71,8 +74,7 @@ class oilPopup extends StatelessWidget {
                             color: Colors.transparent,
                             child: InkWell(
                               onTap: () {
-                                soap.oilPops = false;
-                                soap.Update();
+                                soap.disableSelectPop();
                               },
                               child: Text("확인", style: TextStyle(color: theme.soapThemeColor[0], fontSize: 16, fontWeight: FontWeight.bold),),
                             ),
