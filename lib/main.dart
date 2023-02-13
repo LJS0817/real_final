@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:real_final/config/Mng.dart';
 import 'package:real_final/config/themeConfig.dart';
+import 'package:real_final/models/beauty/beautyMng.dart';
 import 'package:real_final/models/soap/soapMng.dart';
 import 'package:real_final/screens/menu/index.dart';
 import 'package:real_final/screens/work/soap.dart';
@@ -20,7 +22,8 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => soapMng()),
         ChangeNotifierProvider(create: (_) => themeData()),
-
+        ChangeNotifierProvider(create: (_) => Mng()),
+        ChangeNotifierProvider(create: (_) => beautyMng()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

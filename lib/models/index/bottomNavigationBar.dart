@@ -52,7 +52,7 @@ class iconButton extends StatelessWidget {
                   _src,
                   width: scale,
                   height: scale,
-                  color: menu.index == _index ? theme.iconColor : theme.getDisableIconColor(),
+                  color: menu.index == _index ? theme.iconColor : theme.disableIconColor,
                 ),
               )
           ),
@@ -68,10 +68,10 @@ class bottomNavigationBar extends StatelessWidget {
     changeTab = fn;
   }
 
-  void changeTheme(int idx, BuildContext context) {
+  void changeTheme(int idx, themeData theme) {
     if(idx == 3) { menu.isConfig = true; }
     else { menu.isConfig = false; }
-    context.read<themeData>().changeMainTheme(MAINMENU_TYPE.values[idx]);
+    theme.changeMainTheme(MAINMENU_TYPE.values[idx]);
     changeTab(idx);
   }
 
@@ -134,11 +134,11 @@ class bottomNavigationBar extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  iconButton('assets/icon/soap.svg', 0, () { changeTheme(0, context); }),
-                  iconButton('assets/icon/beauty.svg', 1, () { changeTheme(1, context); }),
+                  iconButton('assets/icon/soap.svg', 0, () { changeTheme(0, theme); }),
+                  iconButton('assets/icon/beauty.svg', 1, () { changeTheme(1, theme); }),
                   const SizedBox(width: 82, height: 80,),
-                  iconButton('assets/icon/oil.svg', 2, () { changeTheme(2, context); }, size: 16),
-                  iconButton('assets/icon/settings.svg', 3, () { changeTheme(3, context); }),
+                  iconButton('assets/icon/oil.svg', 2, () { changeTheme(2, theme); }, size: 16),
+                  iconButton('assets/icon/settings.svg', 3, () { changeTheme(3, theme); }),
                 ],
               ),
             ),
@@ -168,9 +168,9 @@ class bottomNavigationBar extends StatelessWidget {
                   splashColor: theme.backgroundColor.withOpacity(0.2),
                   highlightColor: theme.backgroundColor.withOpacity(0.5),
                   onTap: () {
-                    mng.isWorkspace = true;
+                    context.read<Mng>().changeSpace(true);
                     context.read<soapMng>().init();
-                    context.read<themeData>().soapDataInit();
+                    theme.soapDataInit();
                     menu.changeScene(context);
                   },
                   child: AnimatedContainer(

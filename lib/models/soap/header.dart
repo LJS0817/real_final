@@ -61,7 +61,7 @@ class header extends StatelessWidget {
             Positioned(
               right: 20,
               child: Text(
-                "${soap.weight}\n1122\n12\n123213123",
+                "${soap.weight}\n${soap.super_weight}\n12\n${soap.total_weight}",
                 textAlign: TextAlign.right,
                 style: TextStyle(
                   height: 1.5,

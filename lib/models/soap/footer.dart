@@ -12,6 +12,7 @@ class footer extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeData theme = Provider.of<themeData>(context);
     final soapMng soap = Provider.of<soapMng>(context);
+    bool getIndex = soap.index == 0 || soap.index == soapMng.MAX_INDEX;
     return Container(
       height: 75,
       child: Row(
@@ -20,15 +21,15 @@ class footer extends StatelessWidget {
             child: Container(
               height: double.infinity,
               decoration: BoxDecoration(
-                color: soap.index == 0 ? theme.backgroundColor : theme.soapThemeColor[0],
+                color: getIndex ? theme.backgroundColor : theme.soapThemeColor[0],
                 borderRadius: const BorderRadius.only(topRight: Radius.circular(45)),
               ),
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  highlightColor: theme.soapThemeColor[soap.index == 0 ? 0 : 1].withOpacity(0.4),
-                  borderRadius: soap.index == 0 ? BorderRadius.circular(0) : BorderRadius.only(topRight: Radius.circular(45)),
-                  splashColor: theme.soapThemeColor[soap.index == 0 ? 0 : 1].withOpacity(0.4),
+                  highlightColor: theme.soapThemeColor[getIndex ? 0 : 1].withOpacity(0.4),
+                  borderRadius: const BorderRadius.only(topRight: Radius.circular(45)),
+                  splashColor: theme.soapThemeColor[getIndex ? 0 : 1].withOpacity(0.4),
                   onTap: () {
                     soap.setIndex(false, context);
                   },
@@ -37,15 +38,15 @@ class footer extends StatelessWidget {
                     children: [
                       SvgPicture.asset(
                         soap.index == 0 ? 'assets/icon/exit.svg' :'assets/icon/arrow_left.svg' ,
-                        width: soap.index == 0 ? 13 : 20,
+                        width: getIndex ? 13 : 20,
                         height: 20,
-                        color: theme.soapThemeColor[soap.index == 0 ? 0 : 1],
+                        color: theme.soapThemeColor[getIndex ? 0 : 1],
                       ),
-                      Padding(padding: EdgeInsets.only(left: soap.index == 0 ? 10 : 0)),
+                      Padding(padding: EdgeInsets.only(left: getIndex ? 10 : 0)),
                       Visibility(
-                        visible: soap.index == 0,
+                        visible: getIndex,
                         child: Text(
-                          "나가기",
+                          soap.index == soapMng.MAX_INDEX ? "이전" : "나가기",
                           style: TextStyle(
                             color: theme.soapThemeColor[0],
                             fontWeight: FontWeight.bold,
@@ -60,36 +61,38 @@ class footer extends StatelessWidget {
             ),
           ),
           Visibility(
-            visible: soap.index > 0,
-            child: Container(
-              width: 90,
-              height: double.infinity,
-              decoration: BoxDecoration(
-                color: theme.backgroundColor,
-                borderRadius: BorderRadius.circular(100),
-              ),
-              child: Material(
-                color: Colors.transparent,
-                child: InkWell(
+            visible: soap.index > 0 && soap.index < soapMng.MAX_INDEX,
+            child: Expanded(
+                child:Container(
+                  height: double.infinity,
+                  margin: EdgeInsets.symmetric(horizontal: 5),
+                  decoration: BoxDecoration(
+                    color: theme.backgroundColor,
                     borderRadius: BorderRadius.circular(100),
-                    highlightColor: theme.soapThemeColor[0].withOpacity(0.4),
-                    splashColor: theme.soapThemeColor[0].withOpacity(0.4),
-                    onTap: () {
-                      soap.showSelectPop();
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.all(24),
-                      child: SvgPicture.asset(
-                        'assets/icon/add.svg',
-                        color: theme.soapThemeColor[0],
-                      ),
-                    )
+                  ),
+                  child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                        borderRadius: BorderRadius.circular(100),
+                        highlightColor: theme.soapThemeColor[0].withOpacity(0.4),
+                        splashColor: theme.soapThemeColor[0].withOpacity(0.4),
+                        onTap: () {
+                          soap.showSelectPop();
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.all(24),
+                          child: SvgPicture.asset(
+                            'assets/icon/add.svg',
+                            color: theme.soapThemeColor[0],
+                          ),
+                        )
+                    ),
+                  ),
                 ),
-              ),
             ),
           ),
           Visibility(
-            visible: soap.index > 0,
+            visible: soap.index == 3,
             child: Container(
               width: 90,
               height: double.infinity,
@@ -135,9 +138,9 @@ class footer extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Visibility(
-                        visible: soap.index == 0,
+                        visible: getIndex,
                         child: Text(
-                          "    다음",
+                          soap.index == soapMng.MAX_INDEX ? "    저장" : "    다음",
                           style: TextStyle(
                             color: theme.soapThemeColor[1],
                             fontWeight: FontWeight.bold,
@@ -145,9 +148,9 @@ class footer extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Padding(padding: EdgeInsets.only(left: soap.index == 0 ? 10 : 0)),
+                      Padding(padding: EdgeInsets.only(left: getIndex ? 10 : 0)),
                       SvgPicture.asset(
-                        'assets/icon/arrow_right.svg',
+                        soap.index == soapMng.MAX_INDEX ? 'assets/icon/save.svg' : 'assets/icon/arrow_right.svg',
                         width: 20,
                         height: 20,
                         color: theme.soapThemeColor[1],

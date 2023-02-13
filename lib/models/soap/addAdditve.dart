@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:real_final/config/themeConfig.dart';
 import 'package:real_final/models/soap/soapMng.dart';
 
-class addOil extends StatelessWidget {
-  const addOil({super.key});
+class addAdd extends StatelessWidget {
+  const addAdd({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class addOil extends StatelessWidget {
       child: Column(
         children: [
           const Padding(padding: EdgeInsets.only(top: 10)),
-          Text("추가한 오일", style: TextStyle(color: theme.soapThemeColor[0], fontWeight: FontWeight.bold, fontSize: 16 ),),
+          Text("추가한 첨가물", style: TextStyle(color: theme.soapThemeColor[0], fontWeight: FontWeight.bold, fontSize: 16 ),),
           const Padding(padding: EdgeInsets.only(top: 10)),
           Expanded(
             child: ListView(

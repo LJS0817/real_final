@@ -232,11 +232,11 @@ class basic extends StatelessWidget {
                       fontSize: 16,
                     ),
                     decoration: InputDecoration(
-                      labelText: "test",
+                      labelText: "Lye Purity",
                       labelStyle: TextStyle(
                         color: theme.soapThemeColor[1],
                         fontWeight: FontWeight.bold,
-                        fontSize: 16,
+                        fontSize: 14,
                       ),
                       enabledBorder: InputBorder.none,
                       focusedBorder: InputBorder.none,
@@ -270,11 +270,11 @@ class basic extends StatelessWidget {
                       fontSize: 16,
                     ),
                     decoration: InputDecoration(
-                      labelText: "test",
+                      labelText: "Lye Count",
                       labelStyle: TextStyle(
                         color: theme.soapThemeColor[1],
                         fontWeight: FontWeight.bold,
-                        fontSize: 16,
+                        fontSize: 14,
                       ),
                       enabledBorder: InputBorder.none,
                       focusedBorder: InputBorder.none,
@@ -282,46 +282,256 @@ class basic extends StatelessWidget {
                   ),
                 ),
               ),
-              Expanded(
-                child: Container(
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.only(left: 20, right: 20),
-                  margin: EdgeInsets.only(left: 5.3),
-                  height: 60,
-                  decoration: BoxDecoration(
-                    color: theme.soapThemeColor[0],
-                    borderRadius: BorderRadius.circular(13),
-                    boxShadow: [
-                      BoxShadow(
-                          offset: const Offset(0, 10),
-                          blurRadius: 20,
-                          color: Colors.black.withOpacity(0.13))
-                    ],
-                  ),
-                  child: TextField(
-                    cursorColor: theme.soapThemeColor[1],
-                    autocorrect: false,
-                    keyboardType: TextInputType.number,
-                    style: TextStyle(
-                      color: theme.soapThemeColor[1],
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
+              Visibility(
+                visible: theme.type == TYPE.E_COLD,
+                child: Expanded(
+                  child: Container(
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    margin: const EdgeInsets.only(left: 5.3),
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: theme.soapThemeColor[0],
+                      borderRadius: BorderRadius.circular(13),
+                      boxShadow: [
+                        BoxShadow(
+                            offset: const Offset(0, 10),
+                            blurRadius: 20,
+                            color: Colors.black.withOpacity(0.13))
+                      ],
                     ),
-                    decoration: InputDecoration(
-                      labelText: "test",
-                      labelStyle: TextStyle(
+                    child: TextField(
+                      cursorColor: theme.soapThemeColor[1],
+                      autocorrect: false,
+                      keyboardType: TextInputType.number,
+                      style: TextStyle(
                         color: theme.soapThemeColor[1],
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
-                      enabledBorder: InputBorder.none,
-                      focusedBorder: InputBorder.none,
+                      decoration: InputDecoration(
+                        labelText: "Water",
+                        labelStyle: TextStyle(
+                          color: theme.soapThemeColor[1],
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                        enabledBorder: InputBorder.none,
+                        focusedBorder: InputBorder.none,
+                      ),
                     ),
                   ),
                 ),
               ),
             ],
-          )
+          ),
+          const Padding(padding: EdgeInsets.only(top: 13,)),
+          Visibility(
+            visible: theme.type == TYPE.E_HOT,
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 60,
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    margin: const EdgeInsets.only(right: 5.3),
+                    decoration: BoxDecoration(
+                      color: theme.soapThemeColor[0],
+                      borderRadius: BorderRadius.circular(13),
+                      boxShadow: [
+                        BoxShadow(
+                            offset: const Offset(0, 10),
+                            blurRadius: 20,
+                            color: Colors.black.withOpacity(0.13))
+                      ],
+                    ),
+                    child: TextField(
+                      cursorColor: theme.soapThemeColor[1],
+                      autocorrect: false,
+                      keyboardType: TextInputType.number,
+                      style: TextStyle(
+                        color: theme.soapThemeColor[1],
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                      decoration: InputDecoration(
+                        labelText: "Pure soap",
+                        labelStyle: TextStyle(
+                          color: theme.soapThemeColor[1],
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                        enabledBorder: InputBorder.none,
+                        focusedBorder: InputBorder.none,
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    margin: const EdgeInsets.symmetric(horizontal: 2.6, vertical: 0.0),
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: theme.soapThemeColor[0],
+                      borderRadius: BorderRadius.circular(13),
+                      boxShadow: [
+                        BoxShadow(
+                            offset: const Offset(0, 10),
+                            blurRadius: 20,
+                            color: Colors.black.withOpacity(0.13))
+                      ],
+                    ),
+                    child: TextField(
+                      cursorColor: theme.soapThemeColor[1],
+                      autocorrect: false,
+                      keyboardType: TextInputType.number,
+                      style: TextStyle(
+                        color: theme.soapThemeColor[1],
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                      decoration: InputDecoration(
+                        labelText: "Glycerine",
+                        labelStyle: TextStyle(
+                          color: theme.soapThemeColor[1],
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                        enabledBorder: InputBorder.none,
+                        focusedBorder: InputBorder.none,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Padding(padding: EdgeInsets.only(top: 13,)),
+          Visibility(
+            visible: theme.type == TYPE.E_HOT,
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 60,
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    margin: const EdgeInsets.only(right: 5.3),
+                    decoration: BoxDecoration(
+                      color: theme.soapThemeColor[0],
+                      borderRadius: BorderRadius.circular(13),
+                      boxShadow: [
+                        BoxShadow(
+                            offset: const Offset(0, 10),
+                            blurRadius: 20,
+                            color: Colors.black.withOpacity(0.13))
+                      ],
+                    ),
+                    child: TextField(
+                      cursorColor: theme.soapThemeColor[1],
+                      autocorrect: false,
+                      keyboardType: TextInputType.number,
+                      style: TextStyle(
+                        color: theme.soapThemeColor[1],
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                      decoration: InputDecoration(
+                        labelText: "Solvent",
+                        labelStyle: TextStyle(
+                          color: theme.soapThemeColor[1],
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                        enabledBorder: InputBorder.none,
+                        focusedBorder: InputBorder.none,
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    margin: const EdgeInsets.symmetric(horizontal: 2.6, vertical: 0.0),
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: theme.soapThemeColor[0],
+                      borderRadius: BorderRadius.circular(13),
+                      boxShadow: [
+                        BoxShadow(
+                            offset: const Offset(0, 10),
+                            blurRadius: 20,
+                            color: Colors.black.withOpacity(0.13))
+                      ],
+                    ),
+                    child: TextField(
+                      cursorColor: theme.soapThemeColor[1],
+                      autocorrect: false,
+                      keyboardType: TextInputType.number,
+                      style: TextStyle(
+                        color: theme.soapThemeColor[1],
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                      decoration: InputDecoration(
+                        labelText: "Ethanol",
+                        labelStyle: TextStyle(
+                          color: theme.soapThemeColor[1],
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                        enabledBorder: InputBorder.none,
+                        focusedBorder: InputBorder.none,
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    margin: const EdgeInsets.only(left: 5.3),
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: theme.soapThemeColor[0],
+                      borderRadius: BorderRadius.circular(13),
+                      boxShadow: [
+                        BoxShadow(
+                            offset: const Offset(0, 10),
+                            blurRadius: 20,
+                            color: Colors.black.withOpacity(0.13))
+                      ],
+                    ),
+                    child: TextField(
+                      cursorColor: theme.soapThemeColor[1],
+                      autocorrect: false,
+                      keyboardType: TextInputType.number,
+                      style: TextStyle(
+                        color: theme.soapThemeColor[1],
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                      decoration: InputDecoration(
+                        labelText: "Sugar",
+                        labelStyle: TextStyle(
+                          color: theme.soapThemeColor[1],
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                        enabledBorder: InputBorder.none,
+                        focusedBorder: InputBorder.none,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+
         ],
       ),
     );

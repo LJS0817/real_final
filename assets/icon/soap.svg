@@ -1,1 +1,16 @@
-<svg id="Layer_1" height="512" viewBox="0 0 24 24" width="512" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"><path d="m17 7.964v-.964a3 3 0 0 0 -2-2.816v-2.184h4a1 1 0 0 0 0-2h-7a3 3 0 0 0 -3 3v1.184a3 3 0 0 0 -2 2.816v.964a8.943 8.943 0 0 0 -5 8.036v2a6.006 6.006 0 0 0 6 6h8a6.006 6.006 0 0 0 6-6v-2a8.943 8.943 0 0 0 -5-8.036zm-6-4.964a1 1 0 0 1 1-1h1v2h-2zm-2 4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1h-6zm11 11a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4-4v-2a6.968 6.968 0 0 1 3.394-6h9.212a6.968 6.968 0 0 1 3.394 6zm-5-4h-6a3 3 0 0 0 0 6h6a3 3 0 0 0 0-6zm0 4h-6a1 1 0 0 1 0-2h6a1 1 0 0 1 0 2z"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="invisible_box" data-name="invisible box">
+      <rect width="48" height="48" fill="none"/>
+    </g>
+    <g id="Medical">
+      <g>
+        <path d="M35,20h-.8a6,6,0,0,0-10.4,0H13A10,10,0,0,0,3,30v6A10,10,0,0,0,13,46H35A10,10,0,0,0,45,36V30A10,10,0,0,0,35,20Zm-6,1a2,2,0,1,1-2,2A2,2,0,0,1,29,21ZM41,36a6,6,0,0,1-6,6H13a6,6,0,0,1-6-6V30a6,6,0,0,1,6-6H23.1a6,6,0,0,0,11.8,0H35a6,6,0,0,1,6,6Z"/>
+        <path d="M17,18a8,8,0,1,0-8-8A8,8,0,0,0,17,18ZM17,6a4,4,0,1,1-4,4A4,4,0,0,1,17,6Z"/>
+        <circle cx="33" cy="10" r="4"/>
+      </g>
+    </g>
+  </g>
+</svg>

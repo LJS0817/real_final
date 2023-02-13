@@ -14,6 +14,7 @@ class oilPopup extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeData theme = Provider.of<themeData>(context);
     final soapMng soap = Provider.of<soapMng>(context);
+    final Mng mng = Provider.of<Mng>(context);
     return Visibility(
       visible: soap.oilPops,
       child: SafeArea(
@@ -38,12 +39,43 @@ class oilPopup extends StatelessWidget {
                         const Padding(padding: EdgeInsets.only(bottom: 10)),
                         Text(
                           "오일 선택",
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: theme.themeColor),
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: theme.soapThemeColor[0]),
                         ),
                         const Padding(padding: EdgeInsets.only(bottom: 16)),
                         Expanded(
                           child: ListView(
-                            children: mng.oils.values.toList(),
+                            shrinkWrap: true,
+                            children: [
+                              Visibility(
+                                visible: mng.custom.isNotEmpty,
+                                child: Column(
+                                  children: [
+                                    Text("사용자 오일"),
+                                    const Padding(padding: EdgeInsets.only(top: 10),),
+                                    Column(
+                                      children: mng.custom.values.toList(),
+                                    ),
+                                    const Padding(padding: EdgeInsets.only(top: 20),),
+                                  ],
+                                ),
+                              ),
+                              Visibility(
+                                visible: mng.marked.isNotEmpty,
+                                child: Column(
+                                  children: [
+                                    Text("즐겨찾기", style: TextStyle(color: theme.soapThemeColor[0], fontSize: 16, fontWeight: FontWeight.bold),),
+                                    const Padding(padding: EdgeInsets.only(top: 10),),
+                                    Column(
+                                      children: mng.marked.values.toList(),
+                                    ),
+                                    const Padding(padding: EdgeInsets.only(top: 20),),
+                                  ],
+                                ),
+                              ),
+                              Column(
+                                children: Mng.oils.values.toList(),
+                              )
+                            ],
                           ),
                         ),
                         const Padding(padding: EdgeInsets.only(bottom: 14)),
@@ -53,7 +85,7 @@ class oilPopup extends StatelessWidget {
                             scrollDirection: Axis.horizontal,
                             shrinkWrap: true,
                             padding: EdgeInsets.zero,
-                            children: context.watch<soapMng>().oil_short_selected.values.toList(),
+                            children: soap.index == 1 ? soap.oil_short_selected.values.toList() : soap.super_short_selected.values.toList(),
                           ),
                         ),
                         Container(

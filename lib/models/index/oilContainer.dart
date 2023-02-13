@@ -13,7 +13,6 @@ import 'package:real_final/models/soap/soapMng.dart';
 
 class oilContainer extends StatelessWidget {
   late Oil data;
-  bool marked = false;
 
   oilContainer(Oil oil, {super.key}) {
     data = oil;
@@ -26,6 +25,8 @@ class oilContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeData theme = Provider.of<themeData>(context);
+    final soapMng soap = Provider.of<soapMng>(context);
+    final Mng mng = Provider.of<Mng>(context);
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
       height: 50,
@@ -37,16 +38,16 @@ class oilContainer extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           borderRadius: BorderRadius.circular(100),
-          splashColor: theme.soapThemeColor[2].withOpacity(0.6),
-          highlightColor: theme.soapThemeColor[2].withOpacity(0.6),
+          splashColor: mng.isWorkspace ? theme.soapThemeColor[2].withOpacity(0.6) : theme.disableIconColor.withOpacity(0.6),
+          highlightColor: mng.isWorkspace ? theme.soapThemeColor[2].withOpacity(0.6) : theme.disableIconColor.withOpacity(0.6),
           onTap: () {
             if(!mng.isWorkspace) {
               return;
             }
-            if(context.read<soapMng>().oil_selected.containsKey(data.index))  {
-              context.read<soapMng>().removeOilContainer(data.index);
+            if(soap.checkContains(data.index))  {
+              soap.removeOilContainer(data.index);
             } else {
-              context.read<soapMng>().addOilContainer(data);
+              soap.addOilContainer(data);
             }
             // soap.Update();
           },
@@ -58,7 +59,7 @@ class oilContainer extends StatelessWidget {
                 child: Text(
                   data.getName(),
                   style: TextStyle(
-                    color:  mng.isWorkspace ? theme.soapThemeColor[1] : theme.textColor,
+                    color: mng.isWorkspace ? theme.soapThemeColor[1] : theme.textColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
@@ -73,10 +74,10 @@ class oilContainer extends StatelessWidget {
                     child: InkWell(
                       borderRadius: BorderRadius.circular(100),
                       splashColor: theme.themeColor,
-                      highlightColor: theme.getDisableIconColor(),
+                      highlightColor: theme.disableIconColor,
                       onTap: () {
-                        data.marked = !data.marked;
-                        menu.Update();
+                        data.marked = !data.marked ;
+                        mng.MarkOil(data);
                       },
                       child: SizedBox(
                         width: 35,

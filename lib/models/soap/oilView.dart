@@ -86,7 +86,7 @@ class oilView extends StatelessWidget {
                         textDirection: TextDirection.rtl,
                         keyboardType: TextInputType.number,
                         onEditingComplete: () {
-                          soap.addWeight(data.index);
+                          soap.addWeight(data.index, false);
                         },
                         style: TextStyle(
                           color: theme.soapThemeColor[0],

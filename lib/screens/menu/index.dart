@@ -32,7 +32,7 @@ void loadAsset(BuildContext context) async {
           KOH: double.parse(data[4]), fat: List.generate(FAT_TYPE.LENGTH.index,
                   (index) => double.tryParse(data[index + 5]) ?? 0.0));
       list = s.split('\n');
-      mng.oils[i] = oilContainer(oil);
+      Mng.oils[i] = oilContainer(oil);
     } catch(ex) {
       log("ERROR : $ex");
     }
