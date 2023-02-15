@@ -21,7 +21,7 @@ class soapContainer extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
-        color: themeData.getTypeColor(0, data: data.type.index),
+        color: themeData.getThemeColor(0, data: data.type.index),
         borderRadius: const BorderRadius.all(Radius.circular(30)),
       ),
       child: Stack(
@@ -34,7 +34,7 @@ class soapContainer extends StatelessWidget {
                 Text(
                   "레시피테스트이름",
                   style: TextStyle(
-                    color: themeData.getTypeColor(1, data: data.type.index),
+                    color: themeData.getThemeColor(1, data: data.type.index),
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
@@ -43,7 +43,7 @@ class soapContainer extends StatelessWidget {
                 Text(
                   "2000-00-00",
                   style: TextStyle(
-                    color: themeData.getTypeColor(1, data: data.type.index),
+                    color: themeData.getThemeColor(1, data: data.type.index),
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
                   ),
@@ -52,7 +52,7 @@ class soapContainer extends StatelessWidget {
                 Text(
                   "C.P",
                   style: TextStyle(
-                    color: themeData.getTypeColor(2, data: data.type.index),
+                    color: themeData.getThemeColor(2, data: data.type.index),
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
                   ),
@@ -69,7 +69,7 @@ class soapContainer extends StatelessWidget {
               fit: BoxFit.fitHeight,
               width: 120,
               height: 120,
-              color: themeData.getTypeColor(2, data: data.type.index).withOpacity(0.2),
+              color: themeData.getThemeColor(2, data: data.type.index).withOpacity(0.2),
             ),
           ),
           Positioned(
@@ -78,7 +78,7 @@ class soapContainer extends StatelessWidget {
             child: Text(
               "10000000g",
               style: TextStyle(
-                color: themeData.getTypeColor(2, data: data.type.index),
+                color: themeData.getThemeColor(2, data: data.type.index),
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
