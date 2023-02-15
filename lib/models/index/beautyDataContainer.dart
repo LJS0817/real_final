@@ -21,7 +21,7 @@ class beautyContainer extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
-        color: theme.getThemeColor(0),
+        color: theme.getThemeColor(0, data.type.index),
         borderRadius: const BorderRadius.all(Radius.circular(30)),
       ),
       child: Stack(
@@ -34,7 +34,7 @@ class beautyContainer extends StatelessWidget {
                 Text(
                   "레시피테스트이름",
                   style: TextStyle(
-                    color: theme.getThemeColor(1),
+                    color: theme.getThemeColor(1, data.type.index),
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
@@ -43,7 +43,7 @@ class beautyContainer extends StatelessWidget {
                 Text(
                   "2000-00-00",
                   style: TextStyle(
-                    color: theme.getThemeColor(1),
+                    color: theme.getThemeColor(1, data.type.index),
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
                   ),
@@ -52,7 +52,7 @@ class beautyContainer extends StatelessWidget {
                 Text(
                   "C.P",
                   style: TextStyle(
-                    color: theme.getThemeColor(1),
+                    color: theme.getThemeColor(1, data.type.index),
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
                   ),
@@ -78,7 +78,7 @@ class beautyContainer extends StatelessWidget {
             child: Text(
               "10000000g",
               style: TextStyle(
-                color: theme.getThemeColor(2),
+                color: theme.getThemeColor(2, data.type.index),
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
