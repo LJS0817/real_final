@@ -23,7 +23,7 @@ class basic extends StatelessWidget {
             style: TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.bold,
-              color: theme.soapThemeColor[0],
+              color: theme.getThemeColor(0),
             ),
           ),
           const Padding(padding: EdgeInsets.only(top: 13,)),
@@ -32,22 +32,22 @@ class basic extends StatelessWidget {
             padding: const EdgeInsets.only(left: 20, right: 20),
             height: 52,
             decoration: BoxDecoration(
-              color: theme.soapThemeColor[1],
+              color: theme.getThemeColor(1),
               borderRadius: BorderRadius.circular(13),
               border: Border.all(
-                color: theme.soapThemeColor[0],
+                color: theme.getThemeColor(0),
                 width: 3,
               ),
               boxShadow: [
                 BoxShadow(
                     offset: const Offset(0, 10),
                     blurRadius: 20,
-                    color: theme.soapThemeColor[0].withOpacity(0.15)
+                    color: theme.getThemeColor(0).withOpacity(0.15)
                 )
               ],
             ),
             child: TextField(
-                cursorColor: theme.soapThemeColor[0],
+                cursorColor: theme.getThemeColor(0),
                 controller: context.read<soapMng>().name,
                 onChanged: (String s) {
                   context.read<soapMng>().changeName();
@@ -55,14 +55,14 @@ class basic extends StatelessWidget {
                 autocorrect: false,
                 keyboardType: TextInputType.text,
                 style: TextStyle(
-                  color: theme.soapThemeColor[0],
+                  color: theme.getThemeColor(0),
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
                 decoration: InputDecoration(
                   hintText: "레시피 이름",
                   hintStyle: TextStyle(
-                    color: theme.soapThemeColor[0],
+                    color: theme.getThemeColor(0),
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
@@ -79,7 +79,7 @@ class basic extends StatelessWidget {
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: theme.soapThemeColor[0],
+              color: theme.getThemeColor(0),
             ),
           ),
           const Padding(padding: EdgeInsets.only(top: 13,)),
@@ -92,7 +92,7 @@ class basic extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   child: InkWell(
                     borderRadius: BorderRadius.circular(20),
-                    highlightColor: theme.soapThemeColor[2].withOpacity(0.4),
+                    highlightColor: theme.getThemeColor(2).withOpacity(0.4),
                     splashColor: theme.getSoapType(TYPE.E_COLD, 1, 0).withOpacity(0.6),
                     onTap: () {
                       theme.changeSoapTheme(TYPE.E_COLD);
@@ -107,7 +107,7 @@ class basic extends StatelessWidget {
                           BoxShadow(
                               offset: const Offset(0, 10),
                               blurRadius: 20,
-                              color: theme.soapThemeColor[0].withOpacity(0.15)
+                              color: theme.getThemeColor(0).withOpacity(0.15)
                           )
                         ],
                       ),
@@ -127,7 +127,7 @@ class basic extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   child: InkWell(
                     borderRadius: BorderRadius.circular(20),
-                    highlightColor: theme.soapThemeColor[2].withOpacity(0.4),
+                    highlightColor: theme.getThemeColor(2).withOpacity(0.4),
                     splashColor: theme.getSoapType(TYPE.E_HOT, 1, 0).withOpacity(0.6),
                     onTap: () {
                       theme.changeSoapTheme(TYPE.E_HOT);
@@ -141,7 +141,7 @@ class basic extends StatelessWidget {
                           BoxShadow(
                               offset: const Offset(0, 10),
                               blurRadius: 20,
-                              color: theme.soapThemeColor[0].withOpacity(0.15)
+                              color: theme.getThemeColor(0).withOpacity(0.15)
                           )
                         ],
                       ),
@@ -161,7 +161,7 @@ class basic extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   child: InkWell(
                     borderRadius: BorderRadius.circular(20),
-                    highlightColor: theme.soapThemeColor[2].withOpacity(0.4),
+                    highlightColor: theme.getThemeColor(2).withOpacity(0.4),
                     splashColor: theme.getSoapType(TYPE.E_PASTE, 1, 0).withOpacity(0.6),
                     onTap: () {
                       theme.changeSoapTheme(TYPE.E_PASTE);
@@ -175,7 +175,7 @@ class basic extends StatelessWidget {
                           BoxShadow(
                               offset: const Offset(0, 10),
                               blurRadius: 20,
-                              color: theme.soapThemeColor[0].withOpacity(0.15)
+                              color: theme.getThemeColor(0).withOpacity(0.15)
                           )
                         ],
                       ),
@@ -204,7 +204,7 @@ class basic extends StatelessWidget {
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: theme.soapThemeColor[0],
+              color: theme.getThemeColor(0),
             ),
           ),
           const Padding(padding: EdgeInsets.only(top: 13,)),
@@ -217,7 +217,7 @@ class basic extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 20, right: 20),
                   margin: const EdgeInsets.only(right: 5.3),
                   decoration: BoxDecoration(
-                    color: theme.soapThemeColor[0],
+                    color: theme.getThemeColor(0),
                     borderRadius: BorderRadius.circular(13),
                     boxShadow: [
                       BoxShadow(
@@ -227,18 +227,18 @@ class basic extends StatelessWidget {
                     ],
                   ),
                   child: TextField(
-                    cursorColor: theme.soapThemeColor[1],
+                    cursorColor: theme.getThemeColor(1),
                     autocorrect: false,
                     keyboardType: TextInputType.number,
                     style: TextStyle(
-                      color: theme.soapThemeColor[1],
+                      color: theme.getThemeColor(1),
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),
                     decoration: InputDecoration(
                       labelText: "Lye Purity",
                       labelStyle: TextStyle(
-                        color: theme.soapThemeColor[1],
+                        color: theme.getThemeColor(1),
                         fontWeight: FontWeight.bold,
                         fontSize: 14,
                       ),
@@ -255,7 +255,7 @@ class basic extends StatelessWidget {
                   margin: const EdgeInsets.symmetric(horizontal: 2.6, vertical: 0.0),
                   height: 60,
                   decoration: BoxDecoration(
-                    color: theme.soapThemeColor[0],
+                    color: theme.getThemeColor(0),
                     borderRadius: BorderRadius.circular(13),
                     boxShadow: [
                       BoxShadow(
@@ -265,18 +265,18 @@ class basic extends StatelessWidget {
                     ],
                   ),
                   child: TextField(
-                    cursorColor: theme.soapThemeColor[1],
+                    cursorColor: theme.getThemeColor(1),
                     autocorrect: false,
                     keyboardType: TextInputType.number,
                     style: TextStyle(
-                      color: theme.soapThemeColor[1],
+                      color: theme.getThemeColor(1),
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),
                     decoration: InputDecoration(
                       labelText: "Lye Count",
                       labelStyle: TextStyle(
-                        color: theme.soapThemeColor[1],
+                        color: theme.getThemeColor(1),
                         fontWeight: FontWeight.bold,
                         fontSize: 14,
                       ),
@@ -295,7 +295,7 @@ class basic extends StatelessWidget {
                     margin: const EdgeInsets.only(left: 5.3),
                     height: 60,
                     decoration: BoxDecoration(
-                      color: theme.soapThemeColor[0],
+                      color: theme.getThemeColor(0),
                       borderRadius: BorderRadius.circular(13),
                       boxShadow: [
                         BoxShadow(
@@ -305,18 +305,18 @@ class basic extends StatelessWidget {
                       ],
                     ),
                     child: TextField(
-                      cursorColor: theme.soapThemeColor[1],
+                      cursorColor: theme.getThemeColor(1),
                       autocorrect: false,
                       keyboardType: TextInputType.number,
                       style: TextStyle(
-                        color: theme.soapThemeColor[1],
+                        color: theme.getThemeColor(1),
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
                       decoration: InputDecoration(
                         labelText: "Water",
                         labelStyle: TextStyle(
-                          color: theme.soapThemeColor[1],
+                          color: theme.getThemeColor(1),
                           fontWeight: FontWeight.bold,
                           fontSize: 14,
                         ),
@@ -341,7 +341,7 @@ class basic extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 20, right: 20),
                     margin: const EdgeInsets.only(right: 5.3),
                     decoration: BoxDecoration(
-                      color: theme.soapThemeColor[0],
+                      color: theme.getThemeColor(0),
                       borderRadius: BorderRadius.circular(13),
                       boxShadow: [
                         BoxShadow(
@@ -351,18 +351,18 @@ class basic extends StatelessWidget {
                       ],
                     ),
                     child: TextField(
-                      cursorColor: theme.soapThemeColor[1],
+                      cursorColor: theme.getThemeColor(1),
                       autocorrect: false,
                       keyboardType: TextInputType.number,
                       style: TextStyle(
-                        color: theme.soapThemeColor[1],
+                        color: theme.getThemeColor(1),
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
                       decoration: InputDecoration(
                         labelText: "Pure soap",
                         labelStyle: TextStyle(
-                          color: theme.soapThemeColor[1],
+                          color: theme.getThemeColor(1),
                           fontWeight: FontWeight.bold,
                           fontSize: 14,
                         ),
@@ -379,7 +379,7 @@ class basic extends StatelessWidget {
                     margin: const EdgeInsets.symmetric(horizontal: 2.6, vertical: 0.0),
                     height: 60,
                     decoration: BoxDecoration(
-                      color: theme.soapThemeColor[0],
+                      color: theme.getThemeColor(0),
                       borderRadius: BorderRadius.circular(13),
                       boxShadow: [
                         BoxShadow(
@@ -389,18 +389,18 @@ class basic extends StatelessWidget {
                       ],
                     ),
                     child: TextField(
-                      cursorColor: theme.soapThemeColor[1],
+                      cursorColor: theme.getThemeColor(1),
                       autocorrect: false,
                       keyboardType: TextInputType.number,
                       style: TextStyle(
-                        color: theme.soapThemeColor[1],
+                        color: theme.getThemeColor(1),
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
                       decoration: InputDecoration(
                         labelText: "Glycerine",
                         labelStyle: TextStyle(
-                          color: theme.soapThemeColor[1],
+                          color: theme.getThemeColor(1),
                           fontWeight: FontWeight.bold,
                           fontSize: 14,
                         ),
@@ -425,7 +425,7 @@ class basic extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 20, right: 20),
                     margin: const EdgeInsets.only(right: 5.3),
                     decoration: BoxDecoration(
-                      color: theme.soapThemeColor[0],
+                      color: theme.getThemeColor(0),
                       borderRadius: BorderRadius.circular(13),
                       boxShadow: [
                         BoxShadow(
@@ -435,18 +435,18 @@ class basic extends StatelessWidget {
                       ],
                     ),
                     child: TextField(
-                      cursorColor: theme.soapThemeColor[1],
+                      cursorColor: theme.getThemeColor(1),
                       autocorrect: false,
                       keyboardType: TextInputType.number,
                       style: TextStyle(
-                        color: theme.soapThemeColor[1],
+                        color: theme.getThemeColor(1),
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
                       decoration: InputDecoration(
                         labelText: "Solvent",
                         labelStyle: TextStyle(
-                          color: theme.soapThemeColor[1],
+                          color: theme.getThemeColor(1),
                           fontWeight: FontWeight.bold,
                           fontSize: 14,
                         ),
@@ -463,7 +463,7 @@ class basic extends StatelessWidget {
                     margin: const EdgeInsets.symmetric(horizontal: 2.6, vertical: 0.0),
                     height: 60,
                     decoration: BoxDecoration(
-                      color: theme.soapThemeColor[0],
+                      color: theme.getThemeColor(0),
                       borderRadius: BorderRadius.circular(13),
                       boxShadow: [
                         BoxShadow(
@@ -473,18 +473,18 @@ class basic extends StatelessWidget {
                       ],
                     ),
                     child: TextField(
-                      cursorColor: theme.soapThemeColor[1],
+                      cursorColor: theme.getThemeColor(1),
                       autocorrect: false,
                       keyboardType: TextInputType.number,
                       style: TextStyle(
-                        color: theme.soapThemeColor[1],
+                        color: theme.getThemeColor(1),
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
                       decoration: InputDecoration(
                         labelText: "Ethanol",
                         labelStyle: TextStyle(
-                          color: theme.soapThemeColor[1],
+                          color: theme.getThemeColor(1),
                           fontWeight: FontWeight.bold,
                           fontSize: 14,
                         ),
@@ -501,7 +501,7 @@ class basic extends StatelessWidget {
                     margin: const EdgeInsets.only(left: 5.3),
                     height: 60,
                     decoration: BoxDecoration(
-                      color: theme.soapThemeColor[0],
+                      color: theme.getThemeColor(0),
                       borderRadius: BorderRadius.circular(13),
                       boxShadow: [
                         BoxShadow(
@@ -511,18 +511,18 @@ class basic extends StatelessWidget {
                       ],
                     ),
                     child: TextField(
-                      cursorColor: theme.soapThemeColor[1],
+                      cursorColor: theme.getThemeColor(1),
                       autocorrect: false,
                       keyboardType: TextInputType.number,
                       style: TextStyle(
-                        color: theme.soapThemeColor[1],
+                        color: theme.getThemeColor(1),
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
                       decoration: InputDecoration(
                         labelText: "Sugar",
                         labelStyle: TextStyle(
-                          color: theme.soapThemeColor[1],
+                          color: theme.getThemeColor(1),
                           fontWeight: FontWeight.bold,
                           fontSize: 14,
                         ),

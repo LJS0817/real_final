@@ -14,7 +14,7 @@ class addSuper extends StatelessWidget {
       child: Column(
         children: [
           const Padding(padding: EdgeInsets.only(top: 10)),
-          Text("추가한 슈퍼팻", style: TextStyle(color: theme.getTypeColor(0), fontWeight: FontWeight.bold, fontSize: 16 ),),
+          Text("추가한 슈퍼팻", style: TextStyle(color: theme.getThemeColor(0), fontWeight: FontWeight.bold, fontSize: 16 ),),
           const Padding(padding: EdgeInsets.only(top: 10)),
           Expanded(
             child: ListView(
@@ -30,7 +30,7 @@ class addSuper extends StatelessWidget {
                   Text(
                     "없음",
                     style: TextStyle(
-                      color: theme.getTypeColor(0).withOpacity(0.7),
+                      color: theme.getThemeColor(0).withOpacity(0.7),
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
                     ),
@@ -38,7 +38,7 @@ class addSuper extends StatelessWidget {
                   Icon(
                     Icons.keyboard_arrow_down_outlined,
                     size: 25,
-                    color: theme.getTypeColor(0).withOpacity(0.7),
+                    color: theme.getThemeColor(0).withOpacity(0.7),
                   ),
                 ]
             ),

@@ -14,16 +14,16 @@ class addMemo extends StatelessWidget {
       child: Column(
         children: [
           const Padding(padding: EdgeInsets.only(top: 10)),
-          Text("메모", style: TextStyle(color: theme.getTypeColor(0), fontWeight: FontWeight.bold, fontSize: 16 ),),
+          Text("메모", style: TextStyle(color: theme.getThemeColor(0), fontWeight: FontWeight.bold, fontSize: 16 ),),
           Expanded(
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               margin: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
               decoration: BoxDecoration(
-                color: theme.getTypeColor(1),
+                color: theme.getThemeColor(1),
                 borderRadius: BorderRadius.circular(13),
                 border: Border.all(
-                  color: theme.getTypeColor(0),
+                  color: theme.getThemeColor(0),
                   width: 5,
                   strokeAlign: StrokeAlign.inside,
                 ),
@@ -36,7 +36,7 @@ class addMemo extends StatelessWidget {
                 ],
               ),
               child: TextField(
-                cursorColor: theme.getTypeColor(0),
+                cursorColor: theme.getThemeColor(0),
                 maxLines: null,
                 textAlignVertical: TextAlignVertical.top,
                 autocorrect: false,
@@ -44,13 +44,13 @@ class addMemo extends StatelessWidget {
                 keyboardType: TextInputType.multiline,
                 textInputAction: TextInputAction.newline,
                 style: TextStyle(
-                  color: theme.getTypeColor(0),
+                  color: theme.getThemeColor(0),
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
                 decoration: InputDecoration(
                   hintText: "Enter Here",
-                  hintStyle: TextStyle(color: theme.getTypeColor(0).withOpacity(0.3)),
+                  hintStyle: TextStyle(color: theme.getThemeColor(0).withOpacity(0.3)),
                   enabledBorder: InputBorder.none,
                   focusedBorder: InputBorder.none,
                 ),

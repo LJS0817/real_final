@@ -21,15 +21,15 @@ class footer extends StatelessWidget {
             child: Container(
               height: double.infinity,
               decoration: BoxDecoration(
-                color: getIndex ? theme.backgroundColor : theme.soapThemeColor[0],
+                color: getIndex ? theme.backgroundColor : theme.getThemeColor(0),
                 borderRadius: const BorderRadius.only(topRight: Radius.circular(45)),
               ),
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  highlightColor: theme.soapThemeColor[getIndex ? 0 : 1].withOpacity(0.4),
+                  highlightColor: theme.getThemeColor(getIndex ? 0 : 1).withOpacity(0.4),
                   borderRadius: const BorderRadius.only(topRight: Radius.circular(45)),
-                  splashColor: theme.soapThemeColor[getIndex ? 0 : 1].withOpacity(0.4),
+                  splashColor: theme.getThemeColor(getIndex ? 0 : 1).withOpacity(0.4),
                   onTap: () {
                     soap.setIndex(false, context);
                   },
@@ -40,7 +40,7 @@ class footer extends StatelessWidget {
                         soap.index == 0 ? 'assets/icon/exit.svg' :'assets/icon/arrow_left.svg' ,
                         width: getIndex ? 13 : 20,
                         height: 20,
-                        color: theme.soapThemeColor[getIndex ? 0 : 1],
+                        color: theme.getThemeColor(getIndex ? 0 : 1),
                       ),
                       Padding(padding: EdgeInsets.only(left: getIndex ? 10 : 0)),
                       Visibility(
@@ -48,7 +48,7 @@ class footer extends StatelessWidget {
                         child: Text(
                           soap.index == soapMng.MAX_INDEX ? "이전" : "나가기",
                           style: TextStyle(
-                            color: theme.soapThemeColor[0],
+                            color: theme.getThemeColor(0),
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
                           ),
@@ -74,8 +74,8 @@ class footer extends StatelessWidget {
                     color: Colors.transparent,
                     child: InkWell(
                         borderRadius: BorderRadius.circular(100),
-                        highlightColor: theme.soapThemeColor[0].withOpacity(0.4),
-                        splashColor: theme.soapThemeColor[0].withOpacity(0.4),
+                        highlightColor: theme.getThemeColor(0).withOpacity(0.4),
+                        splashColor: theme.getThemeColor(0).withOpacity(0.4),
                         onTap: () {
                           soap.showSelectPop();
                         },
@@ -83,7 +83,7 @@ class footer extends StatelessWidget {
                           padding: const EdgeInsets.all(24),
                           child: SvgPicture.asset(
                             'assets/icon/add.svg',
-                            color: theme.soapThemeColor[0],
+                            color: theme.getThemeColor(0),
                           ),
                         )
                     ),
@@ -104,14 +104,14 @@ class footer extends StatelessWidget {
                 color: Colors.transparent,
                 child: InkWell(
                     borderRadius: BorderRadius.circular(100),
-                    highlightColor: theme.soapThemeColor[0].withOpacity(0.4),
-                    splashColor: theme.soapThemeColor[0].withOpacity(0.4),
+                    highlightColor: theme.getThemeColor(0).withOpacity(0.4),
+                    splashColor: theme.getThemeColor(0).withOpacity(0.4),
                     onTap: () {
                       context.read<soapMng>().changeUnit();
                     },
                     child: Container(
                       padding: const EdgeInsets.all(24),
-                      child: Icon(soap.unit_G ? Icons.change_circle : Icons.change_circle_outlined, size: 32, color: theme.soapThemeColor[0],)
+                      child: Icon(soap.unit_G ? Icons.change_circle : Icons.change_circle_outlined, size: 32, color: theme.getThemeColor(0),)
                     )
                 ),
               ),
@@ -121,15 +121,15 @@ class footer extends StatelessWidget {
             child: Container(
               height: double.infinity,
               decoration: BoxDecoration(
-                color: theme.soapThemeColor[0],
+                color: theme.getThemeColor(0),
                 borderRadius: const BorderRadius.only(topLeft: Radius.circular(45)),
               ),
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(45)),
-                  highlightColor: theme.soapThemeColor[1].withOpacity(0.4),
-                  splashColor: theme.soapThemeColor[1].withOpacity(0.4),
+                  highlightColor: theme.getThemeColor(1).withOpacity(0.4),
+                  splashColor: theme.getThemeColor(1).withOpacity(0.4),
                   onTap: () {
                     log("message");
                     soap.setIndex(true, context);
@@ -142,7 +142,7 @@ class footer extends StatelessWidget {
                         child: Text(
                           soap.index == soapMng.MAX_INDEX ? "    저장" : "    다음",
                           style: TextStyle(
-                            color: theme.soapThemeColor[1],
+                            color: theme.getThemeColor(1),
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
                           ),
@@ -153,7 +153,7 @@ class footer extends StatelessWidget {
                         soap.index == soapMng.MAX_INDEX ? 'assets/icon/save.svg' : 'assets/icon/arrow_right.svg',
                         width: 20,
                         height: 20,
-                        color: theme.soapThemeColor[1],
+                        color: theme.getThemeColor(1),
                       ),
                     ],
                   ),

@@ -39,7 +39,7 @@ class oilPopup extends StatelessWidget {
                         const Padding(padding: EdgeInsets.only(bottom: 10)),
                         Text(
                           "오일 선택",
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: theme.soapThemeColor[0]),
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: theme.getThemeColor(0)),
                         ),
                         const Padding(padding: EdgeInsets.only(bottom: 16)),
                         Expanded(
@@ -63,7 +63,7 @@ class oilPopup extends StatelessWidget {
                                 visible: mng.marked.isNotEmpty,
                                 child: Column(
                                   children: [
-                                    Text("즐겨찾기", style: TextStyle(color: theme.soapThemeColor[0], fontSize: 16, fontWeight: FontWeight.bold),),
+                                    Text("즐겨찾기", style: TextStyle(color: theme.getThemeColor(0), fontSize: 16, fontWeight: FontWeight.bold),),
                                     const Padding(padding: EdgeInsets.only(top: 10),),
                                     Column(
                                       children: mng.marked.values.toList(),
@@ -108,7 +108,7 @@ class oilPopup extends StatelessWidget {
                               onTap: () {
                                 soap.disableSelectPop();
                               },
-                              child: Text("확인", style: TextStyle(color: theme.soapThemeColor[0], fontSize: 16, fontWeight: FontWeight.bold),),
+                              child: Text("확인", style: TextStyle(color: theme.getThemeColor(0), fontSize: 16, fontWeight: FontWeight.bold),),
                             ),
                           ),
                         )
