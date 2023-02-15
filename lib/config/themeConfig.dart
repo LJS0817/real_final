@@ -64,7 +64,7 @@ class themeData with ChangeNotifier {
   Color backgroundColor = themeBackgroundColors[0];
   Color themeColor = themeColors[0];
   ///테마 - 텍스트 - 강조 텍스트 - 비활성화 버튼
-  List<Color> workspaceThemeColor = workspaceThemeColors[0];
+  //List<Color> workspaceThemeColor = workspaceThemeColors[0];
   TYPE type = TYPE.E_COLD;
   MAINMENU_TYPE main_type = MAINMENU_TYPE.E_SOAP;
 
@@ -75,16 +75,16 @@ class themeData with ChangeNotifier {
     } else {
       type = TYPE.E_SKIN;
     }
-    workspaceThemeColor = workspaceThemeColors[type.index];
+    //workspaceThemeColor = workspaceThemeColors[type.index];
   }
 
-  Color getThemeColor(int i) {
-    return workspaceThemeColor[i];
+  Color getThemeColor(int i, {int data = -1}) {
+    return workspaceThemeColors[data == -1 ? type.index : data][i];
   }
 
   void changeSoapTheme(TYPE t) {
     type = t;
-    workspaceThemeColor = workspaceThemeColors[t.index];
+    //workspaceThemeColor = workspaceThemeColors[t.index];
     notifyListeners();
   }
 
