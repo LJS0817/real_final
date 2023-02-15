@@ -39,6 +39,20 @@ class Words {
     "Paste",
   };
 
+  static const Set<String> beautyText = {
+    "스킨",
+    "로션",
+    "에센스",
+    "크림",
+
+
+
+    "Skin",
+    "Lotion",
+    "Essence",
+    "Cream"
+  };
+
   void init() {
     isKorean = Platform.localeName.contains("ko") ? false : true;
   }
@@ -49,6 +63,10 @@ class Words {
 
   String getSoapText(int index) {
     return soapText.elementAt(index + getIndex(soapText.length));
+  }
+
+  String getBeautyType(int index) {
+    return beautyText.elementAt(index + getIndex(beautyText.length));
   }
 
   int getIndex(int length) {

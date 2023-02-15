@@ -5,6 +5,7 @@ import 'package:real_final/config/themeConfig.dart';
 import 'package:real_final/models/beauty/beautyMng.dart';
 import 'package:real_final/models/soap/soapMng.dart';
 import 'package:real_final/screens/menu/index.dart';
+import 'package:real_final/screens/work/beauty.dart';
 import 'package:real_final/screens/work/soap.dart';
 import 'package:real_final/config/menuMng.dart';
 
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         routes: {
           '/index': (context) => IndexScreen(),
-          menu.soap: (context) => SoapWorkspace(),
+          menu.Workspaces[0]: (context) => SoapWorkspace(),
+          menu.Workspaces[1]: (context) => BeautyWorkspace(),
         },
         initialRoute: '/index',
       ),

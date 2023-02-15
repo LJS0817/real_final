@@ -8,7 +8,10 @@ class menuMng {
   final int aniTime = 240;
   late Function Update;
 
-  final String soap = '/work/soap';
+  final List<String> Workspaces = [
+    '/work/soap',
+    '/work/beauty'
+  ];
 
   void init(Function func) {
     index = 0;
@@ -17,6 +20,6 @@ class menuMng {
   }
 
   void changeScene(BuildContext context) {
-    Navigator.pushNamed(context, soap);
+    Navigator.pushNamed(context, Workspaces[index]);
   }
 }

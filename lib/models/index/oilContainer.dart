@@ -32,14 +32,14 @@ class oilContainer extends StatelessWidget {
       height: 50,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100),
-        color: mng.isWorkspace ? theme.soapThemeColor[0] : theme.themeColor,
+        color: mng.isWorkspace ? theme.getThemeColor(0) : theme.themeColor,
       ),
       child: Material(
         color: Colors.transparent,
         child: InkWell(
           borderRadius: BorderRadius.circular(100),
-          splashColor: mng.isWorkspace ? theme.soapThemeColor[2].withOpacity(0.6) : theme.disableIconColor.withOpacity(0.6),
-          highlightColor: mng.isWorkspace ? theme.soapThemeColor[2].withOpacity(0.6) : theme.disableIconColor.withOpacity(0.6),
+          splashColor: mng.isWorkspace ? theme.getThemeColor(2).withOpacity(0.6) : theme.disableIconColor.withOpacity(0.6),
+          highlightColor: mng.isWorkspace ? theme.getThemeColor(2).withOpacity(0.6) : theme.disableIconColor.withOpacity(0.6),
           onTap: () {
             if(!mng.isWorkspace) {
               return;
@@ -59,7 +59,7 @@ class oilContainer extends StatelessWidget {
                 child: Text(
                   data.getName(),
                   style: TextStyle(
-                    color: mng.isWorkspace ? theme.soapThemeColor[1] : theme.textColor,
+                    color: mng.isWorkspace ? theme.getThemeColor(1) : theme.textColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),

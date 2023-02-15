@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
+import 'package:real_final/models/beauty/basic.dart';
 
 
 class beautyMng with ChangeNotifier {
@@ -10,4 +11,8 @@ class beautyMng with ChangeNotifier {
     'assets/icon/lotion.svg',
     'assets/icon/cream.svg',
   };
+
+  Widget curPage = basic();
+  TextEditingController name = TextEditingController();
+
 }

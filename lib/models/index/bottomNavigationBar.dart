@@ -170,7 +170,7 @@ class bottomNavigationBar extends StatelessWidget {
                   onTap: () {
                     context.read<Mng>().changeSpace(true);
                     context.read<soapMng>().init();
-                    theme.soapDataInit();
+                    theme.init(menu.index);
                     menu.changeScene(context);
                   },
                   child: AnimatedContainer(

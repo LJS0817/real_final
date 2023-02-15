@@ -34,6 +34,10 @@ class basic extends StatelessWidget {
             decoration: BoxDecoration(
               color: theme.soapThemeColor[1],
               borderRadius: BorderRadius.circular(13),
+              border: Border.all(
+                color: theme.soapThemeColor[0],
+                width: 3,
+              ),
               boxShadow: [
                 BoxShadow(
                     offset: const Offset(0, 10),
