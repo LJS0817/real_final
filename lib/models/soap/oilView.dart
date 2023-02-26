@@ -39,15 +39,15 @@ class oilView extends StatelessWidget {
         height: 75,
         margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
         decoration: BoxDecoration(
-          color: theme.soapThemeColor[1],
-          border: Border.all(color: theme.soapThemeColor[0], width: 4),
+          color: theme.getThemeColor(1),
+          border: Border.all(color: theme.getThemeColor(0), width: 4),
           borderRadius: BorderRadius.circular(21),
         ),
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            splashColor: theme.soapThemeColor[2].withOpacity(0.7),
-            highlightColor: theme.soapThemeColor[2].withOpacity(0.7),
+            splashColor: theme.getThemeColor(2).withOpacity(0.7),
+            highlightColor: theme.getThemeColor(2).withOpacity(0.7),
             focusColor: Colors.transparent,
             borderRadius: BorderRadius.circular(21),
             onTap: () {
@@ -62,7 +62,7 @@ class oilView extends StatelessWidget {
                   top: 12,
                   child: Text(
                     data.index.toString() + ".  " + data.korean,
-                    style: TextStyle(color: theme.soapThemeColor[0], fontWeight: FontWeight.bold, fontSize: 18),
+                    style: TextStyle(color: theme.getThemeColor(0), fontWeight: FontWeight.bold, fontSize: 18),
                   ),
                 ),
                 Positioned(
@@ -70,7 +70,7 @@ class oilView extends StatelessWidget {
                   top: 38,
                   child: Text(
                     data.english,
-                    style: TextStyle(color: theme.soapThemeColor[0].withOpacity(0.5), fontWeight: FontWeight.bold, fontSize: 15),
+                    style: TextStyle(color: theme.getThemeColor(0).withOpacity(0.5), fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                 ),
                 Positioned(
@@ -81,7 +81,7 @@ class oilView extends StatelessWidget {
                     width: 200,
                     child: TextField(
                         controller: soap.unit_G ? g : per,
-                        cursorColor: theme.soapThemeColor[0],
+                        cursorColor: theme.getThemeColor(0),
                         autocorrect: false,
                         textDirection: TextDirection.rtl,
                         keyboardType: TextInputType.number,
@@ -89,7 +89,7 @@ class oilView extends StatelessWidget {
                           soap.addWeight(data.index, false);
                         },
                         style: TextStyle(
-                          color: theme.soapThemeColor[0],
+                          color: theme.getThemeColor(0),
                           fontWeight: FontWeight.bold,
                           fontSize: 17,
                         ),
@@ -97,7 +97,7 @@ class oilView extends StatelessWidget {
                           hintTextDirection: TextDirection.rtl,
                           hintText: soap.unit_G ? "G" : "%",
                           hintStyle: TextStyle(
-                            color: theme.soapThemeColor[0],
+                            color: theme.getThemeColor(0),
                             fontWeight: FontWeight.bold,
                             fontSize: 17,
                           ),
@@ -111,7 +111,7 @@ class oilView extends StatelessWidget {
                     ),
                   )
                 ),
-                // Icon(CupertinoIcons.xmark_octagon, color: theme.soapThemeColor[1],),
+                // Icon(CupertinoIcons.xmark_octagon, color: theme.getThemeColor(1],),
                 // const Padding(padding: EdgeInsets.only(right: 15))
               ],
             ),

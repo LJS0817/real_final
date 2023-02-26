@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-enum TYPE { E_COLD, E_HOT, E_PASTE, E_SKIN, E_ESSENSE, E_LOTION, E_CREAM }
+enum TYPE { E_COLD, E_HOT, E_PASTE, E_SKIN, E_LOTION, E_ESSENSE, E_CREAM, E_ETC }
 enum MAINMENU_TYPE { E_SOAP, E_BEAUTY, E_OIL, E_SETTING }
 
 class themeData with ChangeNotifier {
@@ -78,11 +78,15 @@ class themeData with ChangeNotifier {
     workspaceThemeColor = workspaceThemeColors[type.index];
   }
 
-  Color getThemeColor(int i) {
-    return workspaceThemeColor[i];
+  int getType() {
+    return type.index > TYPE.E_PASTE.index ? type.index - 3 : type.index;
   }
 
-  void changeSoapTheme(TYPE t) {
+  Color getThemeColor(int i, {int data = -1}) {
+    return workspaceThemeColors[data == -1 ? type.index : data][i];
+  }
+
+  void changeWorkspaceTheme(TYPE t) {
     type = t;
     workspaceThemeColor = workspaceThemeColors[t.index];
     notifyListeners();

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:real_final/config/languageConfig.dart';
 import 'package:real_final/config/themeConfig.dart';
 import 'package:real_final/models/soap/soapMng.dart';
 
@@ -14,7 +15,7 @@ class addAdd extends StatelessWidget {
       child: Column(
         children: [
           const Padding(padding: EdgeInsets.only(top: 10)),
-          Text("추가한 첨가물", style: TextStyle(color: theme.soapThemeColor[0], fontWeight: FontWeight.bold, fontSize: 16 ),),
+          Text(words.getSoapText(18), style: TextStyle(color: theme.getThemeColor(0), fontWeight: FontWeight.bold, fontSize: 16 ),),
           const Padding(padding: EdgeInsets.only(top: 10)),
           Expanded(
             child: ListView(
@@ -28,9 +29,9 @@ class addAdd extends StatelessWidget {
             child: Column(
                 children: [
                   Text(
-                    "없음",
+                    words.getSoapText(20),
                     style: TextStyle(
-                      color: theme.themeColor.withOpacity(0.7),
+                      color: theme.getThemeColor(0).withOpacity(0.7),
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
                     ),
@@ -38,7 +39,7 @@ class addAdd extends StatelessWidget {
                   Icon(
                     Icons.keyboard_arrow_down_outlined,
                     size: 25,
-                    color: theme.themeColor.withOpacity(0.7),
+                    color: theme.getThemeColor(0).withOpacity(0.7),
                   ),
                 ]
             ),

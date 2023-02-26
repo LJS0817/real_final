@@ -27,7 +27,7 @@ class header extends StatelessWidget {
           children: [
             Positioned(
               child: SvgPicture.asset(
-                beauty.typeIcons.elementAt(theme.type.index),
+                beauty.typeIcons.elementAt(theme.type.index - 3),
                 width: 120,
                 height: 120,
                 color: theme.getThemeColor(2).withOpacity(0.1),
@@ -43,7 +43,7 @@ class header extends StatelessWidget {
                     const Padding(padding: EdgeInsets.only(bottom: 10)),
                     Text("2000-00-00", style: TextStyle(color: theme.getThemeColor(1),fontWeight: FontWeight.bold,),),
                     const Padding(padding: EdgeInsets.only(bottom: 10)),
-                    Text(words.getSoapText(1 + theme.type.index), style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold, color: theme.getThemeColor(2),),),
+                    Text("${words.getBeautyText(theme.getType())} [ ${words.getBeautyText(beauty.type.index + 6)} ]", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold, color: theme.getThemeColor(2),),),
                   ],
                 )
             ),

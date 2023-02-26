@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:real_final/config/themeConfig.dart';
 import 'package:real_final/models/soap/soapMng.dart';
 
+import '../../config/languageConfig.dart';
+
 class addOil extends StatelessWidget {
   const addOil({super.key});
 
@@ -14,7 +16,7 @@ class addOil extends StatelessWidget {
       child: Column(
         children: [
           const Padding(padding: EdgeInsets.only(top: 10)),
-          Text("추가한 오일", style: TextStyle(color: theme.soapThemeColor[0], fontWeight: FontWeight.bold, fontSize: 16 ),),
+          Text(words.getSoapText(16), style: TextStyle(color: theme.getThemeColor(0), fontWeight: FontWeight.bold, fontSize: 16 ),),
           const Padding(padding: EdgeInsets.only(top: 10)),
           Expanded(
             child: ListView(
@@ -28,9 +30,9 @@ class addOil extends StatelessWidget {
             child: Column(
                 children: [
                   Text(
-                    "없음",
+                    words.getSoapText(20),
                     style: TextStyle(
-                      color: theme.themeColor.withOpacity(0.7),
+                      color: theme.getThemeColor(0).withOpacity(0.7),
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
                     ),
@@ -38,7 +40,7 @@ class addOil extends StatelessWidget {
                   Icon(
                     Icons.keyboard_arrow_down_outlined,
                     size: 25,
-                    color: theme.themeColor.withOpacity(0.7),
+                    color: theme.getThemeColor(0).withOpacity(0.7),
                   ),
                 ]
             ),

@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:real_final/config/languageConfig.dart';
 import 'package:real_final/config/themeConfig.dart';
 import 'package:real_final/models/beauty/TypeButton.dart';
 import 'package:real_final/models/beauty/beautyMng.dart';
@@ -14,12 +15,12 @@ class basic extends StatelessWidget {
     final themeData theme = Provider.of<themeData>(context);
     return Expanded(
       child: ListView(
+        primary: false,
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 21),
         shrinkWrap: true,
-        primary: false,
         children: [
           Text(
-            "레시피 이름",
+            words.getText(0),
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 22,
@@ -61,7 +62,7 @@ class basic extends StatelessWidget {
                   fontSize: 16,
                 ),
                 decoration: InputDecoration(
-                  hintText: "레시피 이름",
+                  hintText: words.getText(0),
                   hintStyle: TextStyle(
                     color: theme.getThemeColor(1),
                     fontWeight: FontWeight.bold,
@@ -75,10 +76,10 @@ class basic extends StatelessWidget {
 
           const Padding(padding: EdgeInsets.only(top: 38,)),
           Text(
-            "비누 유형",
+            words.getBeautyText(4),
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 20,
+              fontSize: 22,
               fontWeight: FontWeight.bold,
               color: theme.getThemeColor(1),
             ),
@@ -87,17 +88,28 @@ class basic extends StatelessWidget {
           Row(
             children: [
               typeButton(TYPE.E_SKIN),
+              const Padding(padding: EdgeInsets.only(left: 13,)),
               typeButton(TYPE.E_LOTION),
+            ],
+          ),
+          const Padding(padding: EdgeInsets.only(top: 13,)),
+          Row(
+            children: [
+              typeButton(TYPE.E_ESSENSE),
+              const Padding(padding: EdgeInsets.only(left: 13,)),
+              typeButton(TYPE.E_CREAM),
+              //const Padding(padding: EdgeInsets.only(left: 13,)),
+              //typeButton(TYPE.E_ETC),
             ],
           ),
           const Padding(padding: EdgeInsets.only(top: 38,)),
           Text(
-            "값 입력",
+            words.getText(1),
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 20,
+              fontSize: 22,
               fontWeight: FontWeight.bold,
-              color: theme.getThemeColor(0),
+              color: theme.getThemeColor(1),
             ),
           ),
           const Padding(padding: EdgeInsets.only(top: 13,)),
@@ -126,7 +138,7 @@ class basic extends StatelessWidget {
                 fontSize: 16,
               ),
               decoration: InputDecoration(
-                labelText: "Lye Purity",
+                labelText: words.getBeautyText(13),
                 labelStyle: TextStyle(
                   color: theme.getThemeColor(1),
                   fontWeight: FontWeight.bold,
@@ -166,7 +178,7 @@ class basic extends StatelessWidget {
                       fontSize: 16,
                     ),
                     decoration: InputDecoration(
-                      labelText: "Lye Purity",
+                      labelText: words.getBeautyText(14),
                       labelStyle: TextStyle(
                         color: theme.getThemeColor(1),
                         fontWeight: FontWeight.bold,
@@ -204,7 +216,7 @@ class basic extends StatelessWidget {
                       fontSize: 16,
                     ),
                     decoration: InputDecoration(
-                      labelText: "Lye Count",
+                      labelText: words.getBeautyText(15),
                       labelStyle: TextStyle(
                         color: theme.getThemeColor(1),
                         fontWeight: FontWeight.bold,
@@ -242,7 +254,7 @@ class basic extends StatelessWidget {
                       fontSize: 16,
                     ),
                     decoration: InputDecoration(
-                      labelText: "Lye Count",
+                      labelText: words.getBeautyText(16),
                       labelStyle: TextStyle(
                         color: theme.getThemeColor(1),
                         fontWeight: FontWeight.bold,
